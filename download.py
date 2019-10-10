@@ -4,7 +4,7 @@ import itertools
 import csv
 from collections import Counter
 
-# TASK: prepare a web service that reads first 100 linbes from a file stored on S3, parses it and returns number of players in each team.
+# TASK: prepare a web service that reads first 100 lines from a file stored on S3, parses it and returns number of players in each team.
 #
 # Below is a script that gets the object from S3. It can be helpful when creating full, object-oriented solution
 
@@ -21,6 +21,7 @@ client = boto3.client(
 )
 
 try:
+    # See: https://botocore.amazonaws.com/v1/documentation/api/latest/reference/response.html
     stream = client.get_object(Bucket=BUCKET_NAME, Key=KEY)['Body']
     # ...
     
